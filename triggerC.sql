@@ -1,0 +1,20 @@
+CREATE OR REPLACE FUNCTION 
+	triggerC_actions_func()
+RETURNS TRIGGER AS $$
+BEGIN
+	NEW.actiondate = current_date;
+	RETURN NEW;
+END;
+$$ LANGUAGE PLPGSQL;
+
+CREATE OR REPLACE FUNCTION 
+	triggerC_savings_func()
+RETURNS TRIGGER AS $$
+BEGIN
+	NEW.depositdate = current_date;
+	RETURN NEW;
+END;
+$$ LANGUAGE PLPGSQL;
+
+CREATE TRIGGER triggerC BEFORE INSERT ON actions FOR EACH ROW EXECUTE PROCEDURE triggerC_actions_func();
+CREATE TRIGGER triggerC BEFORE INSERT ON savings FOR EACH ROW EXECUTE PROCEDURE triggerC_savings_func();

@@ -1,0 +1,14 @@
+DROP FUNCTION newCustomer(CustomerID INTEGER, CustomerName VARCHAR, CustomerPassword VARCHAR, Overdraft REAL);
+DROP FUNCTION closeCustomer(CustomerID INTEGER);
+DROP FUNCTION doAction(CustomerID INTEGER, ActionName VARCHAR, ActionDate DATE, Amount REAL);
+DROP FUNCTION newSaving(CustomerID INTEGER, Deposit REAL, DepositDate DATE, NumOfYears INTEGER, Interest REAL);
+DROP TRIGGER triggerA ON accountbalance;
+DROP FUNCTION triggerA_func();
+DROP TRIGGER triggerB ON accountbalance;
+DROP FUNCTION triggerB_func();
+DROP TRIGGER triggerC ON actions;
+DROP FUNCTION triggerC_actions_func();
+DROP TRIGGER triggerC ON savings;
+DROP FUNCTION triggerC_savings_func();
+DROP TRIGGER triggerD ON accountbalance;
+DROP FUNCTION triggerD_func();
